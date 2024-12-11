@@ -4,23 +4,23 @@ Program:
 '}' 'End message'
 ;
 Command:
-    AssignCommand //done
-    | ManipulateCommand //done 
-    | ConditionalBlock //done : may come back for else if (probably not)
-    | DivisionCommand //done
-    | ForBlock //done
-    | IndexCommand //done
-    | LengthCommand //done
-    | CreateListCommand //done
-    | OpenListCommand //done
-    | PrintCommand //done
-    | InsertListCommand //done
-    | AddListCommand //done
-    | SubtractionCommand //done
-    | AdditionCommand //done
-    | ModuloCommand //done
-    | WhileBlock //done
-    | MultiplyCommand //done
+    AssignCommand
+    | ManipulateCommand 
+    | ConditionalBlock 
+    | DivisionCommand
+    | ForBlock
+    | IndexCommand 
+    | LengthCommand 
+    | CreateListCommand
+    | OpenListCommand
+    | PrintCommand 
+    | InsertListCommand 
+    | AddListCommand 
+    | SubtractionCommand 
+    | AdditionCommand 
+    | ModuloCommand 
+    | WhileBlock 
+    | MultiplyCommand
 ;
 
 
@@ -131,7 +131,7 @@ Operator:
     '*' //equal to E
     | '--*' //greater than G
     | '*-**' //less than L
-    | '***-' //greater than or equal (more) to V
+    | '***-' //greater than or equal to V
     | '-*' //not equal to N
     | '*--' //less than or equal to Q
 ;
