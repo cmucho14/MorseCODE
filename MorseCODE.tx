@@ -1,0 +1,138 @@
+Program:
+'Start message' '{'
+    commands*=Command
+'}' 'End message'
+;
+Command:
+    AssignCommand //done
+    | ManipulateCommand //done 
+    | ConditionalBlock //done : may come back for else if (probably not)
+    | DivisionCommand //done
+    | ForBlock //done
+    | IndexCommand //done
+    | LengthCommand //done
+    | CreateListCommand //done
+    | OpenListCommand //done
+    | PrintCommand //done
+    | InsertListCommand //done
+    | AddListCommand //done
+    | SubtractionCommand //done
+    | AdditionCommand //done
+    | ModuloCommand //done
+    | WhileBlock //done
+    | MultiplyCommand //done
+;
+
+
+Condition:
+   var1 = NumberValueType operator = Operator var2 = NumberValueType
+;
+
+Block:
+    '-*--' '{'
+        commands *= Command
+    '}' '--**'
+;
+
+AssignCommand: // A
+    '*-' var = ID value = AllValueType
+;
+
+ManipulateCommand: // B
+    '-***' var = ID increment = INT?
+;
+
+ConditionalBlock: // C
+    '-*-*' condition = Condition
+    block = Block
+    elseClause = ElseClause?
+
+;
+DivisionCommand: // D
+    '-**' result = ID dividend = NumberValueType divisor = NumberValueType
+;
+
+ForBlock: //F
+    '**-*' condition = Condition step = INT?
+        block = Block
+;
+
+
+ElseClause: //H 
+    '****' block = Block
+;
+
+
+
+IndexCommand: //I 
+    '**' list = ID search = IndexValueType resultIndex = ID
+;
+
+LengthCommand: //J
+    '*---' var = ID resultLength = ID
+;
+
+CreateListCommand: //K
+    '-*-' list_name = ID
+;
+
+OpenListCommand: //O 
+    '---' list_name = ID index = INT valueAtIndex = ID 
+;
+
+PrintCommand: //P 
+    '*--*' message = AllValueType 
+;
+
+InsertListCommand: //Q
+    '--*-' list = ID itemAdded = AllValueType indexAdded = INT
+;
+AddListCommand: //R 
+    '*-*' list = ID itemAdded = AllValueType
+;
+
+SubtractionCommand: //S 
+    '***' difference = ID minuend = NumberValueType subtrahend = NumberValueType
+;
+
+AdditionCommand: //T 
+    '-' sum = ID addend1 = NumberValueType addend2 = NumberValueType
+;
+
+ModuloCommand: //M 
+    '--' dividend = NumberValueType divisor = NumberValueType remainder = ID
+; 
+
+WhileBlock: //W
+    '*--' condition = Condition 
+        block = Block
+;
+
+MultiplyCommand: //X 
+    '-**-' product = ID multiplicand = NumberValueType multiplier = NumberValueType
+;
+
+
+AllValueType: ID | INT | STRING;
+
+NumberValueType: ID | INT;
+
+StringValueType: ID | INT;
+
+IndexValueType: STRING | INT;
+
+ID: /[a-zA-Z_][a-zA-Z0-9_]*/;
+
+INT: /[0-9]+/;
+
+STRING: /"([^"\\]|\\.)*"|'([^'\\]|\\.)"*/; 
+
+Operator:
+    '*' //equal to E
+    | '--*' //greater than G
+    | '*-**' //less than L
+    | '***-' //greater than or equal (more) to V
+    | '-*' //not equal to N
+    | '*--' //less than or equal to Q
+;
+ 
