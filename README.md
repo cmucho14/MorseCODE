@@ -85,6 +85,7 @@ NOTE: for some reason the README does not like the print command. The correct sy
 '*--' / Q --> <=
 
 ## To Run
+Ensure that python and TextX are installed on your computer
 
 To run programs create a file with the end being .morse
 
