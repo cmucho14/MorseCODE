@@ -81,4 +81,8 @@ commands here
 
 '*--' / Q --> <=
 
+## To Run
 
+To run programs create a file with the end being .morse
+
+Create your program using the syntax, then run your python file
