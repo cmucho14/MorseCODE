@@ -6,9 +6,11 @@ A Programming Language where you can code in secrecy. Editing the TextX file of 
 
 ## HelloWorld.morse
 
-Start message {
-  *--* "Hello World"
+Start message { 
+   *--* "Hello World" 
 } End message
+
+command should be '*--*' not '*'
 
 ## Overview of keywords for my preferences
 
@@ -56,6 +58,7 @@ commands here
 '---' / O --> Open List //Opens a specific, valid index of a list
 
 '*--*' / P --> Print //Prints what ever is after the statement
+NOTE: for some reason the README does not like the print command. The correct syntax is a '*' before and after the '--'
 
 '--*- / Q --> Insert List// Inserts a value at a speicifc, valid index into a list
 
